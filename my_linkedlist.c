@@ -21,6 +21,7 @@ void insertAtBeginning(Node** ref, int data) {
 
   // Move head to new node
   (*ref) = new_node;
+
 }
 
 // Insert a node after a node
@@ -35,6 +36,30 @@ void insertAfter(Node* node, int data) {
   new_node->next = node->next;
   node->next = new_node;
 }
+
+void insertMiddle (Node** ref, int pos, int data){
+  Node *temp = *ref, *prev; // temp armazeda head da lista
+  int c = 0; // contador de posições
+  printf("%d\n", pos);
+  // Procura posição para deletar
+  while (temp != NULL && c != pos-1) {
+    c++; // Incremnta posição
+    prev = temp;
+    temp = temp->next;
+  }
+  //printf("%d\n", temp->entrada);
+  if (temp == NULL) {
+    printf("the given previous node cannot be NULL");
+    return;
+  }
+
+  Node* new_node = (Node*)malloc(sizeof(Node));
+  new_node->entrada = data;
+  new_node->next = temp->next;
+  temp->next = new_node;
+
+}
+
 
 void insertAtEnd(Node** ref, int data) {
   Node* new_node = (Node*)malloc(sizeof(Node)); // Aloca memória novo Node
@@ -114,9 +139,10 @@ void showList(Node* node) {
 void showElement(Node* node, int pos) {
   int c = 0;
   if (node == NULL) printf("Lista Vazia!");
-  while (c != pos) {
+  while (c != pos && node != NULL) {
     c++;
     node = node->next;
   }
+  if (node == NULL) printf("Position %d doies not exist.", pos)
   printf("%d", node->entrada);
 }

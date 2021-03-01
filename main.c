@@ -44,10 +44,26 @@ int main(int argc, char *argv[]) {
 			break;
 		}
 
-		// Verifica Comando de Adição à Lista --------------------------#
+		// Verifica Comando de Adição ao Inicio da Lista --------------------------#
+    if (strncmp(input, "begin\n", 5) == 0) {
+      tam++; // Incrementa Info com Tamanho da Lista
+      insertAtBeginning(&L,(int)input[6]-48); // Adiciona Novos Elementos
+      showList(L); // Exibe Lista completa com o novo elemento
+			printf("| %d", tam);
+    }
+
+		// Verifica Comando de Adição ao Fim da Lista --------------------------#
     if (strncmp(input, "put\n", 3) == 0) {
       tam++; // Incrementa Info com Tamanho da Lista
       insertAtEnd(&L,(int)input[4]-48); // Adiciona Novos Elementos
+      showList(L); // Exibe Lista completa com o novo elemento
+			printf("| %d", tam);
+    }
+
+		// Verifica Comando de Adição ao Meio da Lista --------------------------#
+    if (strncmp(input, "middle\n", 6) == 0) {
+      tam++; // Incrementa Info com Tamanho da Lista
+      insertMiddle(&L,(int)input[7]-48, (int)input[9]-48); // Adiciona Novos Elementos
       showList(L); // Exibe Lista completa com o novo elemento
 			printf("| %d", tam);
     }
@@ -59,7 +75,7 @@ int main(int argc, char *argv[]) {
 				showList(L);
     }
 
-		// Comando Para Remoção de Elemento --------------------------#
+		// Comando Para Remoção de Todos os Elementos --------------------------#
 		if (strncmp(input, "clear\n", 5) == 0) {
       	deleteAllNodes(&L); tam=0;
 				showList(L);
