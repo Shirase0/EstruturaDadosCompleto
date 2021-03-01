@@ -37,7 +37,7 @@ void insertAfter(Node* node, int data) {
   node->next = new_node;
 }
 
-void insertMiddle (Node** ref, int pos, int data){
+void insertMiddle (Node** ref, int pos, int data, int *tam){
   Node *temp = *ref, *prev; // temp armazeda head da lista
   int c = 0; // contador de posições
   printf("%d\n", pos);
@@ -49,7 +49,7 @@ void insertMiddle (Node** ref, int pos, int data){
   }
   //printf("%d\n", temp->entrada);
   if (temp == NULL) {
-    printf("the given previous node cannot be NULL");
+    printf("the given previous node cannot be NULL.\n");
     return;
   }
 
@@ -57,6 +57,7 @@ void insertMiddle (Node** ref, int pos, int data){
   new_node->entrada = data;
   new_node->next = temp->next;
   temp->next = new_node;
+  ++*tam;
 
 }
 
@@ -143,6 +144,6 @@ void showElement(Node* node, int pos) {
     c++;
     node = node->next;
   }
-  if (node == NULL) printf("Position %d doies not exist.", pos)
+  if (node == NULL) printf("Position %d doies not exist.", pos);
   printf("%d", node->entrada);
 }

@@ -62,8 +62,7 @@ int main(int argc, char *argv[]) {
 
 		// Verifica Comando de Adição ao Meio da Lista --------------------------#
     if (strncmp(input, "middle\n", 6) == 0) {
-      tam++; // Incrementa Info com Tamanho da Lista
-      insertMiddle(&L,(int)input[7]-48, (int)input[9]-48); // Adiciona Novos Elementos
+      insertMiddle(&L,(int)input[7]-48, (int)input[9]-48, &tam); // Adiciona Novos Elementos
       showList(L); // Exibe Lista completa com o novo elemento
 			printf("| %d", tam);
     }
