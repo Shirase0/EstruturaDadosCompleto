@@ -1,7 +1,17 @@
-// Linked list operations in C
+/*
+ ============================================================================
+ Name        : my_linkedlist.c
+ Author      : Shirase
+ Version     :
+ Copyright   :
+ Description : Linked List Operations in C
+ ============================================================================
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "my_linkedlist.h"
+
 
 // Create a node
 typedef struct Node {
@@ -41,6 +51,11 @@ void insertMiddle (Node** ref, int pos, int data, int *tam){
   Node *temp = *ref, *prev; // temp armazeda head da lista
   int c = 0; // contador de posições
   printf("%d\n", pos);
+
+  if(pos <= 0){
+    printf("Posicao %d não existe.", pos);
+    return;
+  }
   // Procura posição para deletar
   while (temp != NULL && c != pos-1) {
     c++; // Incremnta posição
@@ -144,6 +159,9 @@ void showElement(Node* node, int pos) {
     c++;
     node = node->next;
   }
-  if (node == NULL) printf("Position %d doies not exist.", pos);
+  if (node == NULL){
+    printf("Posicao %d nao existe.", pos+1);
+    return;
+  }
   printf("%d", node->entrada);
 }

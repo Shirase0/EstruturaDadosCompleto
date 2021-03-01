@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "my_linkedlist.c"
+#include "my_linkedlist.h"
 #include "bub.c"
 
 // Exibe o comando de entrada
