@@ -40,5 +40,7 @@ void showList(Node* node);
 // Exibe Elemento Definido
 void showElement(Node* node, int pos);
 
+// Exibe Conjunto de Elementos
+void showConElements(Node* node, int pos, int fim);
 
 #endif

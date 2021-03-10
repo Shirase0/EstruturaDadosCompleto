@@ -153,7 +153,22 @@ void showList(Node* node) {
 
 // Exibe Elemento Definido
 void showElement(Node* node, int pos) {
-  int c = 0;
+  int c = 0
+  if (node == NULL) printf("Lista Vazia!");
+  while (c != pos && node != NULL) {
+    c++;
+    node = node->next;
+  }
+  if (node == NULL){
+    printf("Posicao %d nao existe.", pos+1);
+    return;
+  }
+  printf("%d", node->entrada);
+}
+
+
+void showConElements(Node* node, int pos, int fim){
+  int c = 0
   if (node == NULL) printf("Lista Vazia!");
   while (c != pos && node != NULL) {
     c++;
