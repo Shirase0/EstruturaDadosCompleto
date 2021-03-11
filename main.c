@@ -1,8 +1,8 @@
 /*
  ============================================================================
  Name        : main.c
- Author      : Felipe Costa Garcia
- Version     :
+ Author      : Felipe Costa
+ Version     : 0.5
  Copyright   :
  Description : Principal
  ============================================================================
@@ -94,6 +94,16 @@ int main(int argc, char *argv[]) {
 
 		// Exibe Único Elemento Solicitado ---------------------------#
     if (strncmp(input, "get\n", 3) == 0) showElement(L, (int)input[4]-49);
+
+		// Exibe Único Elemento Solicitado ---------------------------#
+    if (strncmp(input, "con\n", 3) == 0) showConElements(L, (int)input[4]-49, (int)input[6]-49);
+
+		// Salva Lista -----------------------------------------------#
+    if (strncmp(input, "save\n", 4) == 0) saveList(L, (int)input[5]-49, (int)input[7]-49);
+
+		// Abre Lista Salva ------------------------------------------#
+    if (strncmp(input, "open\n", 4) == 0) openList(&L, (int)input[5]-49);
+
 
 
     // Ordena a Lista ---------------------------------------------#

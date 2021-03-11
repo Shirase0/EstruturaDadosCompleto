@@ -2,7 +2,7 @@
  ============================================================================
  Name        : my_linkedlist.h
  Author      : Shirase
- Version     :
+ Version     : 0.5
  Copyright   :
  Description : Linked List Operations Functions Declaration
  ============================================================================
@@ -42,5 +42,14 @@ void showElement(Node* node, int pos);
 
 // Exibe Conjunto de Elementos
 void showConElements(Node* node, int pos, int fim);
+
+// Salva Lista em Arquivo txt
+void saveList(Node* node, int pos, int fim);
+
+// Abre Lista em Arquivo txt
+void openList(Node** node, int local);
+
+// Exibe Listas Salvas
+void showSavedLists(Node* node);
 
 #endif
